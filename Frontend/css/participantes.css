@@ -74,6 +74,12 @@ body{
     text-align: center;
     pointer-events: none;
 }
+
+.container nav ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+
 .textBox h1{
     font-size: 3.4em;
 }
@@ -120,6 +126,8 @@ body{
     filter: blur(60px);
     animation: animBack 6s linear infinite;
 }
+
+
 @keyframes animBack {
     0%{
         top: -60px;
