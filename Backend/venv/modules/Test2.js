@@ -1,6 +1,6 @@
 console.log('Iniciando la solicitud HTTP...');
 const inputData = {
-    model_path: "Modelos\\estud_classifier_model_tree.pkl",
+    model_path: "Backend\\venv\\models\\estud_classifier_model_tree.pkl",
     input_values: [10, 2, 2, 2, 1, 2004, 1, 4, 5, 15.33333333, 1.927930212, 696, 684, 728, 646, 727]
 };
 
