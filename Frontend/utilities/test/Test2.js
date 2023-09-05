@@ -1,3 +1,4 @@
+import axios from 'https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js';
 console.log('Iniciando la solicitud HTTP...');
 const inputData = {
     model_path: "Backend\\venv\\models\\estud_classifier_model_tree.pkl",
@@ -5,12 +6,10 @@ const inputData = {
 };
 
 try {
-    const response = await fetch('http://127.0.0.1:8080/predict', {
-        method: 'POST',
+    const response = await axios.post('http://127.0.0.1:8080/predict', this.inputData, {
         headers: {
             'Content-Type': 'application/json' // Establecer el tipo de contenido JSON
-        },
-        body: JSON.stringify(inputData) // Convertir los datos a formato JSON
+        }
     });
 
     console.log('Respuesta recibida del servidor:', response);

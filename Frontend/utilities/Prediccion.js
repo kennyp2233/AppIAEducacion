@@ -15,7 +15,8 @@ class Modelo {
             this.inputData.input_values = valores;
 
             // Realizar la solicitud HTTP POST y esperar la respuesta
-            const response = await axios.post('http://127.0.0.1:8080/predict', this.inputData, {
+            //const response = await axios.post('http://127.0.0.1:8080/predict', this.inputData, {
+            const response = await axios.post('https://kennyp2233.pythonanywhere.com/predict', this.inputData, {
                 headers: {
                     'Content-Type': 'application/json' // Establecer el tipo de contenido JSON
                 }
@@ -37,14 +38,16 @@ class Modelos {
     constructor() { }
 
     async predecirKNN(inputData) {
-        const modeloKNN = 'Backend\\venv\\models\\estud_classifier_model_tree.pkl';
+        //const modeloKNN = 'Backend\\venv\\models\\estud_classifier_model_tree.pkl';
+        const modeloKNN = '/home/kennyp2233/models/estud_classifier_model_tree.pkl';
         const predictorKNN = new Modelo(modeloKNN);
         const resultadoKNN = await predictorKNN.predecir(inputData);
         return resultadoKNN;
     }
 
     async predecirTrees(inputData) {
-        const modeloTrees = 'Backend\\venv\\models\\estud_classifier_model.pkl';
+        //const modeloTrees = 'Backend\\venv\\models\\estud_classifier_model.pkl';
+        const modeloTrees = '/home/kennyp2233/models/estud_classifier_model.pkl';
         const predictorTrees = new Modelo(modeloTrees);
         const resultadoTrees = await predictorTrees.predecir(inputData);
         return resultadoTrees;
