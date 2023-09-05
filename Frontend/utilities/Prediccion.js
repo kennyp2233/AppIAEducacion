@@ -152,6 +152,7 @@ predecirBtn.addEventListener('click', async function () {
         ];
 
     }
+
     if (inputData.length === 0) {
         alert('Por favor, complete todos los campos.');
         return; // Detener la ejecución si faltan campos

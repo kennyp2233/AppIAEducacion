@@ -2,6 +2,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
+import os
 import pickle
 
 app = Flask(__name__)
@@ -17,8 +18,11 @@ def predict():
         input_data = request.json
         model_path = input_data.get('model_path')
         input_values = input_data.get('input_values')
+        print("-----------------------")
+        print("Directorio de trabajo actual:", os.getcwd())
         print("Model Path:", model_path)
         print("Input Values:", input_values)
+        print("-----------------------")
 
         # Cargar el modelo PKL
         with open(model_path, 'rb') as model_file:
@@ -38,6 +42,4 @@ def predict():
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
 
-#import os
-#print("Directorio de trabajo actual:", os.getcwd())
 
