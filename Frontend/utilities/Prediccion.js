@@ -133,22 +133,22 @@ predecirBtn.addEventListener('click', async function () {
         alert('Por favor, complete todos los campos.');
     } else {
         inputData = [
-            parseInt(gradoValue),
-            parseInt(nmRegiValue),
-            parseInt(esRegevaValue),
-            parseInt(financiamientoValue),
-            parseInt(tpSexoValue),
-            parseInt(naEanoValue),
-            parseInt(tpAreaValue),
-            parseInt(etnibeeValue),
-            parseInt(quintilValue),
+            parseFloat(gradoValue),
+            parseFloat(nmRegiValue),
+            parseFloat(esRegevaValue),
+            parseFloat(financiamientoValue),
+            parseFloat(tpSexoValue),
+            parseFloat(naEanoValue),
+            parseFloat(tpAreaValue),
+            parseFloat(etnibeeValue),
+            parseFloat(quintilValue),
             parseFloat(facExpValue),
             parseFloat(isecValue),
-            parseInt(inevValue),
-            parseInt(imatValue),
-            parseInt(ilylValue),
-            parseInt(icnValue),
-            parseInt(iesValue),
+            parseFloat(inevValue),
+            parseFloat(imatValue),
+            parseFloat(ilylValue),
+            parseFloat(icnValue),
+            parseFloat(iesValue),
         ];
 
     }
@@ -163,9 +163,43 @@ predecirBtn.addEventListener('click', async function () {
 
     // Realizar las predicciones de manera asincrónica
     try {
-        const resultadoKNN = await modelos.predecirKNN(inputData);
-        const resultadoTrees = await modelos.predecirTrees(inputData);
+        let resultadoKNN = await modelos.predecirKNN(inputData);
+        let resultadoTrees = await modelos.predecirTrees(inputData);
+        switch (parseInt(resultadoKNN)) {
+            case 0:
+                resultadoKNN = "Insuficiente";
+                break;
+            case 1:
+                resultadoKNN = "Elememtal";
+                break;
+            case 2:
+                resultadoKNN = "Satisfactoria";
+                break;
+            case 3:
+                resultadoKNN = "Excelente";
+                break;
 
+            default:
+                resultadoKNN = "ERROR";
+        }
+
+        switch (parseInt(resultadoTrees)) {
+            case 0:
+                resultadoTrees = "Insuficiente";
+                break;
+            case 1:
+                resultadoTrees = "Elememtal";
+                break;
+            case 2:
+                resultadoTrees = "Satisfactoria";
+                break;
+            case 3:
+                resultadoTrees = "Excelente";
+                break;
+
+            default:
+                resultadoTrees = "ERROR";
+        }
         // Mostrar los resultados en el cuadro de diálogo
         dialogMessage.textContent = `Predicción KNN: ${resultadoKNN}\nPredicción Trees: ${resultadoTrees}`;
     } catch (error) {
