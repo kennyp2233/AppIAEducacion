@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Futuro Escolar</title>
-    <link rel="stylesheet" href="./css/futuro.css?t=1693882173795">
+    <link rel="stylesheet" href="./css/futuro.css?t=1693885391755">
 
 </head>
 
 <body>
+
     <div class="bgAnimation" id="bgAnimation">
         <div class="backgroundAmim">
 
@@ -31,9 +32,14 @@
     <div id="dialog" class="dialog">
         <div class="dialog-content">
             <h2 id="dialog-title" class="dialog-title">Resultados</h2>
-            <p id="dialog-title" class="dialog-message">Procesando, por favor espere...</p>
+            <p id="dialog-message" class="dialog-message1">Procesando, por favor espere...</p>
+            <p id="dialog-message" class="dialog-message2"></p>
+            <div class="exit-button-container">
+                <button class="exit-button" id="exit-button" style="--i: #000;">Cerrar</button>
+            </div>
         </div>
     </div>
+    
 
 
     <form class="form" id="form">
@@ -121,13 +127,13 @@
                 <label for="ies" class="form_label">Promedio CCSS</label>
                 <span class="form_line"></span>
             </div>
-            <button class="form_submit" id="form_submit" style="--i: #000;">Predecir</button>
+            <button class="form_submit" id="form_submit" style="--i: #000;"><strong>Predecir</strong></button>
         </div>
         </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script type="module" src="./utilities/Prediccion.js?t=1693882173795"></script>
-        <script type="module" src="./utilities/Animacion.js?t=1693882173795"></script>
+        <script type="module" src="./utilities/Prediccion.js?t=1693885391755"></script>
+        <script type="module" src="./utilities/Animacion.js?t=1693885391755"></script>
 </body>
 
 </html>

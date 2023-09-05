@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -7,7 +8,10 @@
 body{
     color: #fff;
     background: #111;  
-    font-family: 'Popins', sans-serif;
+    font-family: 'Alegreya', sans-serif;
+}
+.container{
+    margin-bottom: 3%;
 }
 .container nav{
     width: 100%;
@@ -19,12 +23,12 @@ body{
     align-items: center;
 }
 .container nav h1{
-    font-size: 2.6em;
+    font-size: 3em;
     color: #fff;
     position: relative;
     cursor: pointer;
     pointer-events: all;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
 }
 .container nav h1 span{
     color: #9CCD62;
@@ -86,14 +90,15 @@ body{
 }
 .form_container{
     position: relative;
-    margin-top: 3em;
+    margin-top: 1em;
     display: grid;
     gap: 2.5em;
 }
 .form_group{
     position: relative;
-    --color: #111;
+    --color: #5757577e;
     color: #5757577e;
+
 }
 .form_input{
     width: 100%;
@@ -110,14 +115,14 @@ body{
     color: #4d4646 ;
 }
 .form_input:focus + .form_label, .form_input:not(:placeholder-shown) + .form_label{
-    transform: translateY(-12px) scale(.7);
+    transform: translateY(-12px) scale(.9);
     transform-origin: left top;
     color: #9CCD62;
 }
 .form_label{
     cursor: pointer;
     position: absolute;
-    top: 0;
+    top: -5px;
     left: 5px;
     transform: translateY(10px);
     transition: transform .5s, color .3s;
@@ -125,13 +130,13 @@ body{
 .form_submit{
     background: #9CCD62;
     color: #000;
-    font-family: 'Popins', sans-serif;
     font-weight: 300;
     font-size: 1rem;
     padding: .8em 0;
     border: none;
     border-radius: 4px;
     grid-column: span 4; 
+    font-family: 'Alegreya';
 }
 .form_line{
     position: absolute;
@@ -173,7 +178,6 @@ body{
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    font-family: 'Popins', sans-serif;
     color: #000; /* Cambia el color de texto a negro */
     display: inline-block;
     transform: translate(-50%, -50%);
@@ -192,7 +196,28 @@ body{
     color: #111;
 }
 
-.dialog-message {
+#dialog-message {
     font-size: 1rem;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
+}
+
+.exit-button {
+    background-color: #9CCD62;
+    color: #000;
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: auto; /* Centra horizontalmente el botón */
+    margin-right: auto; /* Centra horizontalmente el botón */
+}
+
+
+.exit-button-container {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
 }

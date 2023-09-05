@@ -77,18 +77,20 @@ const icnInput = document.getElementById('icn');
 const iesInput = document.getElementById('ies');
 
 const predecirBtn = document.getElementById('form_submit');
+const exitBtn = document.getElementById('exit-button');
 const formulario = document.getElementById('form');
 
 const dialog = document.getElementById('dialog');
 const dialogTitle = document.querySelector('.dialog-title');
-const dialogMessage = document.querySelector('.dialog-message');
+const dialogMessage1 = document.querySelector('.dialog-message1');
+const dialogMessage2 = document.querySelector('.dialog-message2');
 
-
+exitBtn.addEventListener('click', function(){
+    dialog.style.display = 'none';
+});
 
 formulario.addEventListener('submit', function (evento) {
     evento.preventDefault();
-
-
 });
 
 predecirBtn.addEventListener('click', async function () {
@@ -158,7 +160,8 @@ predecirBtn.addEventListener('click', async function () {
         return; // Detener la ejecución si faltan campos
     }
 
-    dialogMessage.textContent = 'Procesando, por favor espere...';
+    dialogMessage1.textContent = 'Procesando, por favor espere...';
+    dialogMessage2.textContent = '';
     dialog.style.display = 'block';
 
     // Realizar las predicciones de manera asincrónica
@@ -170,7 +173,7 @@ predecirBtn.addEventListener('click', async function () {
                 resultadoKNN = "Insuficiente";
                 break;
             case 1:
-                resultadoKNN = "Elememtal";
+                resultadoKNN = "Elemental";
                 break;
             case 2:
                 resultadoKNN = "Satisfactoria";
@@ -188,7 +191,7 @@ predecirBtn.addEventListener('click', async function () {
                 resultadoTrees = "Insuficiente";
                 break;
             case 1:
-                resultadoTrees = "Elememtal";
+                resultadoTrees = "Elemental";
                 break;
             case 2:
                 resultadoTrees = "Satisfactoria";
@@ -201,14 +204,10 @@ predecirBtn.addEventListener('click', async function () {
                 resultadoTrees = "ERROR";
         }
         // Mostrar los resultados en el cuadro de diálogo
-        dialogMessage.textContent = `Predicción KNN: ${resultadoKNN}\nPredicción Trees: ${resultadoTrees}`;
+        dialogMessage1.innerHTML  = `<strong>Predicción KNN:</strong> ${resultadoKNN}`;
+        dialogMessage2.innerHTML  = `<strong>Predicción Trees:</strong> ${resultadoTrees}`;
     } catch (error) {
         console.error('Error:', error);
-        dialogMessage.textContent = 'Ocurrió un error al realizar la predicción.';
+        dialogMessage1.textContent = 'Ocurrió un error al realizar la predicción.';
     }
-
-    // Ocultar el cuadro de diálogo después de un tiempo (por ejemplo, 3 segundos)
-    setTimeout(() => {
-        dialog.style.display = 'none';
-    }, 3000); // 3000 milisegundos (3 segundos)
 });
