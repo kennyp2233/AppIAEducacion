@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from sklearn.preprocessing import StandardScaler
 
 import os
 import pickle
@@ -28,13 +29,19 @@ def predict():
         with open(model_path, 'rb') as model_file:
             model = pickle.load(model_file)
 
+        # Normalizar los valores de entrada
+        scaler = StandardScaler()
+        input_values_normalized = scaler.fit_transform([input_values])
+
         # Realizar la predicción utilizando el modelo
-        prediction = model.predict([input_values])
+        prediction = model.predict(input_values_normalized)
 
         return jsonify({'prediction': prediction.tolist()})
     except Exception as e:
         app.logger.error('Error: %s', str(e))
         return jsonify({'error': str(e)})
+
+
 
 
 if __name__ == "__main__":
