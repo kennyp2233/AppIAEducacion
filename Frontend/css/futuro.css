@@ -137,6 +137,11 @@ body{
     border-radius: 4px;
     grid-column: span 4; 
     font-family: 'Alegreya';
+    text-decoration: none;
+    
+}
+.form_container a{
+    margin-bottom: -20px;
 }
 .form_line{
     position: absolute;
